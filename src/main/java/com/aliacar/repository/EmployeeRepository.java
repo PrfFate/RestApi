@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.aliacar.model.Employee;
+import com.aliacar.model.UpdateEmployeeRequest;
 
 
 @Repository
@@ -78,6 +79,36 @@ public boolean deleteEmployee(String id){
     }
     employeeList.remove(deleteEmployee);
     return true;   
+}
+
+private Employee findEmployeeById(String id){
+    Employee findEmployee=null;
+    for (Employee employee : employeeList) {
+        if(employee.getId().equals(id)){
+            findEmployee=employee;
+            break;
+        }
+    }
+    return findEmployee;
+}
+
+public Employee uptadeEmployee(String id,UpdateEmployeeRequest request){
+   Employee findEmployee=findEmployeeById(id);
+   if(findEmployee!=null){
+        deleteEmployee(id);
+
+        Employee uptadedEmployee =new Employee();
+        uptadedEmployee.setId(id);
+        uptadedEmployee.setFirstName(request.getFirstName());
+        uptadedEmployee.setLastName(request.getLastName());
+
+        employeeList.add(uptadedEmployee);
+        return uptadedEmployee;
+   }else{
+    return null;
+   }
+   
+   
 }
 
 

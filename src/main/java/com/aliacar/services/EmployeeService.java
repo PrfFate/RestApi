@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aliacar.model.Employee;
+import com.aliacar.model.UpdateEmployeeRequest;
 import com.aliacar.repository.EmployeeRepository;
 
 @Service
@@ -34,6 +35,10 @@ public class EmployeeService {
     public boolean deleteEmployee(String id){
         return employeeRepository.deleteEmployee(id);
         
+    }
+    public Employee uptadeEmployee(String id,UpdateEmployeeRequest request){
+        return employeeRepository.uptadeEmployee(id,request);
+
     }
 
 
