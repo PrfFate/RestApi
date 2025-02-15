@@ -2,7 +2,7 @@ package com.aliacar.services;
 
 import java.util.List;
 
-import javax.print.DocFlavor.READER;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,9 +27,13 @@ public class EmployeeService {
         return employeeRepository.getEmployeeWithParams(firstName,lastName);
     }
 
-    public Employee saveEmployee(Employee neweEmployee){
-        return employeeRepository.saveEmployee(neweEmployee);
+    public Employee saveEmployee(Employee newEmployee){
+        return employeeRepository.saveEmployee(newEmployee);
 
+    }
+    public boolean deleteEmployee(String id){
+        return employeeRepository.deleteEmployee(id);
+        
     }
 
 
