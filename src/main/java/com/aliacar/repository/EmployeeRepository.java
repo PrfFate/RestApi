@@ -60,5 +60,23 @@ public List<Employee> getEmployeeWithParams(String firstName,String lastName){
     }
      return employeeWithParams;
 }
+
+public Employee saveEmployee(Employee newEmployee){
+    employeeList.add(newEmployee);
+    return newEmployee;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
